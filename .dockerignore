@@ -1,0 +1,62 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+
+# Virtual Environment
+.venv/
+venv/
+env/
+
+# Environment files (will be passed via env_file in docker-compose)
+.env
+
+# Telegram Sessions (will be mounted as volume)
+sessions/
+*.session
+*.session-journal
+
+# Media Cache (will be mounted as volume)
+media/
+
+# Git
+.git/
+.gitignore
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Documentation
+*.md
+!README.md
+
+# Docker
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Tests
+tests/
+*.pytest_cache/
+.coverage
+
+# CI/CD
+.github/
+.gitlab-ci.yml
+
+.claude/

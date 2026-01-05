@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  telegram-receiver:
+    build: .
+    container_name: telegram-channel-receiver
+    restart: unless-stopped
+    ports:
+      - "8020:8020"
+
+    # Environment variables from .env file
+    env_file:
+      - .env
+
+    # ВАЖНО: Volumes для сохранения данных между обновлениями
+    volumes:
+      # Сессия Telegram - КРИТИЧНО для сохранения аутентификации
+      - ./sessions:/app/sessions
+
+      # Кеш медиа файлов - опционально, но желательно
+      - ./media:/app/media
+
+      # Если хотите hot-reload в разработке (закомментируйте в production)
+      # - .:/app
+
+    # Health check
+    healthcheck:
+      test: ["CMD", "python", "-c", "import requests; requests.get('http://localhost:8000/health')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+    # Logging
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+# Альтернативный вариант: Named volumes (вместо bind mounts)
+# Раскомментируйте, если хотите использовать Docker volumes вместо локальных директорий
+# volumes:
+#   telegram_sessions:
+#   telegram_media:
+
+# И замените в services.telegram-receiver.volumes:
+#   volumes:
+#     - telegram_sessions:/app/sessions
+#     - telegram_media:/app/media

@@ -1,0 +1,15 @@
+# Core Framework
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+pydantic==2.10.5
+pydantic-settings==2.7.1
+
+# Telegram Client
+pyrogram==2.0.106
+TgCrypto==1.2.5
+
+# Utilities
+python-dotenv==1.0.1
+aiofiles==24.1.0
+python-multipart==0.0.20
+python-dateutil==2.9.0
