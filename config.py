@@ -32,7 +32,7 @@ class Settings(BaseSettings):
     default_messages_limit: int = 20
 
     # Security
-    cors_origins: list[str] = ["neptun.speedwagon.uz"]
+    cors_origins: list[str] = ["neptun.speedwagon.uz", "localhost:4200"]
 
     model_config = SettingsConfigDict(
         env_file=".env",
