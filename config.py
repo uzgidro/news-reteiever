@@ -31,6 +31,9 @@ class Settings(BaseSettings):
     max_messages_per_request: int = 100
     default_messages_limit: int = 20
 
+    # Security
+    cors_origins: list[str] = ["neptun.speedwagon.uz"]
+
     model_config = SettingsConfigDict(
         env_file=".env",
         env_file_encoding="utf-8",
