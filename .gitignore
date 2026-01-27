@@ -12,8 +12,8 @@ build/
 venv/
 env/
 
-# Environment
-.env
+# Config (contains secrets)
+config/config.yaml
 
 # Telegram Sessions
 sessions/
@@ -39,3 +39,4 @@ Thumbs.db
 logs/
 
 .claude/
+/news-retriever
