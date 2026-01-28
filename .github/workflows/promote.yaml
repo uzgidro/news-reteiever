@@ -42,11 +42,11 @@ jobs:
           cd gitops
 
           # Обновляем image tag через sed
-          sed -i "s|newTag:.*|newTag: ${{ inputs.image_tag }}|g" apps/prime-parser/overlays/prod/kustomization.yaml
+          sed -i "s|newTag:.*|newTag: ${{ inputs.image_tag }}|g" apps/news-retriever/overlays/prod/kustomization.yaml
 
           # Коммит и пуш если есть изменения
           if [[ -n $(git status --porcelain) ]]; then
-            git add apps/lex-parser/overlays/prod/kustomization.yaml
+            git add apps/news-retriever/overlays/prod/kustomization.yaml
             git commit -m "deploy(prod): ${{ inputs.image_tag }}"
             git push
           else
