@@ -9,7 +9,7 @@ on:
         type: string
 
 env:
-  DOCKER_IMAGE: ${{ secrets.DOCKERHUB_USERNAME }}/prime-parser
+  DOCKER_IMAGE: ${{ secrets.DOCKERHUB_USERNAME }}/news-retriever
 
 jobs:
   promote:
